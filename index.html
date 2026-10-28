@@ -251,8 +251,8 @@ ol.list{padding-left:1.6em}
 
 /* Bilder */
 .fig{display:grid;gap:14px}
-.fig.side{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start}
-@media (max-width:720px){.fig.side{grid-template-columns:1fr}}
+.fig.duo{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start}
+@media (max-width:720px){.fig.duo{grid-template-columns:1fr}}
 .imgs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
 figure{margin:0;display:grid;gap:6px}
 figure button{border:1px solid var(--line);border-radius:10px;padding:6px;background:#fff;cursor:zoom-in}
@@ -571,7 +571,7 @@ function table(b, k, i) {
 }
 function figure(b, k, id) {
   const imgs = `<div class="imgs">${b.imgs.map(im => `<figure><button type="button" data-zoom="${im.ref}" aria-label="Bild vergrössern"><img src="${IMG[im.ref]}" alt="${esc(strip(im.caption))}" loading="lazy"></button><figcaption>${im.caption}</figcaption></figure>`).join("")}</div>`;
-  if (b.side && b.side.length) return `<div class="fig side"${id}>${imgs}<div class="content" style="gap:10px">${blocks(b.side, k, true)}</div></div>`;
+  if (b.side && b.side.length) return `<div class="fig duo"${id}>${imgs}<div class="content" style="gap:10px">${blocks(b.side, k, true)}</div></div>`;
   return `<div class="fig"${id}>${imgs}</div>`;
 }
 
